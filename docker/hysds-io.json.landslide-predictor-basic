@@ -1,0 +1,26 @@
+{
+  "label": "Landslide Predictor",
+  "submission_type": "individual",
+  "allowed_accounts": [ "ops" ],
+  "action-type":  "both",
+  "params": [
+    {
+      "name": "s3uri",
+      "from": "submitter",
+      "type": "text",
+      "optional": true
+    },
+    {
+      "name": "misc",
+      "from": "submitter",
+      "type": "text",
+      "optional": true
+    },
+    {
+      "name":"localize_products",
+      "from":"dataset_jpath:",
+      "type":"text",
+      "lambda" : "lambda ds: filter(lambda x: x.startswith('s3://'), ds['_source']['urls'])[0]"
+    }
+  ]
+}
